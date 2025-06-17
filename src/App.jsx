@@ -7,7 +7,28 @@ import { fetchCurrentWeather, fetchForecast } from './api/weatherApi';
  
 
 const App = () => {
-   
+  const [current, setCurrent] = useState(null);
+  const [forecast, setForecast] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const loadWeather = async () => {
+      setLoading(true);
+      setError('');
+      try {
+        const currentData = await fetchCurrentWeather(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
+        const forecastData = await fetchForecast(DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lon);
+        setCurrent({ ...currentData, locationName: DEFAULT_LOCATION.name });
+        setForecast(forecastData.list);
+      } catch (err) {
+        setError('Failed to load weather data.');
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadWeather();
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-400 to-blue-600 flex flex-col items-center py-6 px-2">
