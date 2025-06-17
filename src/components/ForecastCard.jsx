@@ -9,14 +9,14 @@ const ForecastCard = ({ day, onClick, selected }) => {
 
   return (
     <button
-      className={`flex flex-col items-center bg-white bg-opacity-80 rounded-lg p-3 shadow hover:shadow-lg transition border-2 ${selected ? 'border-blue-500' : 'border-transparent'}`}
+      className={`flex flex-col items-center bg-white rounded-xl p-5 shadow-md hover:shadow-xl transition border-2 min-w-[150px] max-w-[120px] min-h-[170px] ${selected ? 'border-blue-500' : 'border-transparent'}`}
       onClick={onClick}
       aria-pressed={selected}
     >
-      <div className="text-xs text-gray-500 mb-1">{formatDate(dt_txt)}</div>
-      <img src={getWeatherIcon(icon)} alt={description} className="w-12 h-12" />
-      <div className="font-bold mt-1">{Math.round(main.temp_max)}° / {Math.round(main.temp_min)}°</div>
-      <div className="text-xs text-gray-600">{description}</div>
+      <div className="text-sm text-gray-500 mb-1 font-semibold">{formatDate(dt_txt)}</div>
+      <img src={getWeatherIcon(icon)} alt={description} className="w-14 h-14 mb-1" />
+      <div className="font-bold text-lg mt-1">{Math.round(main.temp_max)}° <span className="text-gray-400">/</span> {Math.round(main.temp_min)}°</div>
+      <div className="text-xs text-gray-600 mt-1">{description}</div>
     </button>
   );
 };
