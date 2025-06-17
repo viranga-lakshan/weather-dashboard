@@ -9,7 +9,7 @@ const WeatherCard = ({ data, fullHeight }) => {
   const description = weather?.[0]?.main;
 
   return (
-    <div className={`bg-white bg-opacity-90 rounded-2xl shadow-xl p-10 flex flex-col items-center w-full max-w-sm min-w-[320px] min-h-[500px] ${fullHeight ? 'h-full' : ''}`}>
+    <div className={`bg-white bg-opacity-90 rounded-2xl shadow-xl p-4 flex flex-col items-center w-full max-w-sm min-w-[320px] min-h-[500px] ${fullHeight ? 'h-full' : ''}`}>
       <img
         src={getWeatherIcon(icon)}
         alt={description}
