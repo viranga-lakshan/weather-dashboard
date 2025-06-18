@@ -2,6 +2,13 @@ import React from 'react';
 import { getWeatherIcon } from '../utils/weatherIcons';
 import { formatDate } from '../utils/formatDate';
 
+/**
+ * ForecastCard displays a single day's forecast.
+ * @param {object} props
+ * @param {object} props.day - Forecast data for the day.
+ * @param {function} props.onClick - Handler for card click.
+ * @param {boolean} props.selected - If true, card is highlighted.
+ */
 const ForecastCard = ({ day, onClick, selected }) => {
   const { dt_txt, main, weather } = day;
   const icon = weather?.[0]?.icon;

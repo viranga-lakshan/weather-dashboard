@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import ForecastCard from './ForecastCard';
 
-// Helper to get one forecast per day (at noon)
+/**
+ * Helper to get one forecast per day (at noon) from 3-hourly data.
+ * @param {Array} forecast - Array of forecast objects from API.
+ * @returns {Array} - Array of daily forecast objects.
+ */
 const getDailyForecast = (forecast) => {
   const daily = [];
   const seen = new Set();
@@ -15,6 +19,12 @@ const getDailyForecast = (forecast) => {
   return daily.slice(0, 5);
 };
 
+/**
+ * ForecastList displays a row of 5-day forecast cards.
+ * @param {object} props
+ * @param {Array} props.forecast - Array of forecast data.
+ * @param {boolean} props.fullHeight - If true, stretches to fill parent height.
+ */
 const ForecastList = ({ forecast, fullHeight }) => {
   const daily = getDailyForecast(forecast);
   const [selected, setSelected] = useState(0);

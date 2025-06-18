@@ -1,8 +1,24 @@
 import React, { useState } from 'react';
 
-const LocationSelector = ({ onSearch, favorites, onSelectFavorite, onRemoveFavorite, currentCity }) => {
+/**
+ * LocationSelector provides a search bar and favorites dropdown for city selection.
+ * @param {object} props
+ * @param {function} props.onSearch - Called with city name on search.
+ * @param {Array} props.favorites - List of favorite cities.
+ * @param {function} props.onSelectFavorite - Called with city name when favorite selected.
+ * @param {function} props.onRemoveFavorite - Called with city name to remove from favorites.
+ * @param {string} props.currentCity - Name of the currently selected city.
+ */
+const LocationSelector = ({
+  onSearch,
+  favorites,
+  onSelectFavorite,
+  onRemoveFavorite,
+  currentCity
+}) => {
   const [input, setInput] = useState('');
 
+  // Handle search form submit
   const handleSubmit = (e) => {
     e.preventDefault();
     if (input.trim()) {
@@ -13,6 +29,7 @@ const LocationSelector = ({ onSearch, favorites, onSelectFavorite, onRemoveFavor
 
   return (
     <div className="flex flex-col md:flex-row items-center gap-4 mb-8 w-full max-w-xl mx-auto">
+      {/* City Search Form */}
       <form onSubmit={handleSubmit} className="flex w-full md:w-auto ">
         <input
           type="text"
@@ -29,6 +46,7 @@ const LocationSelector = ({ onSearch, favorites, onSelectFavorite, onRemoveFavor
           🔍
         </button>
       </form>
+      {/* Favorites Dropdown */}
       {favorites.length > 0 && (
         <div className="relative w-full md:w-auto">
           <select
@@ -41,6 +59,7 @@ const LocationSelector = ({ onSearch, favorites, onSelectFavorite, onRemoveFavor
               <option key={fav.name} value={fav.name}>{fav.name}</option>
             ))}
           </select>
+          {/* Remove Favorite Buttons */}
           {favorites.length > 0 && (
             <div className="absolute right-2 top-2 flex flex-col gap-1">
               {favorites.map(fav => (
