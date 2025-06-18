@@ -23,7 +23,7 @@ const ForecastCard = ({ day, onClick, selected }) => {
     >
       <div className="text-sm text-gray-500 mb-1 font-semibold">{formatDate(dt_txt)}</div>
       <img src={getWeatherIcon(icon)} alt={description} className="w-14 h-14 mb-1" />
-      <div className="font-bold text-lg mt-1">{Math.round(main.temp_max)}° <span className="text-gray-400">/</span> {Math.round(main.temp_min)}°</div>
+      <div className="font-bold text-lg mt-1">{Math.round(main.temp_max)}° <span className="text-gray-400"></span> {Math.round(main.temp_min)}°</div>
       <div className="text-xs text-gray-600 mt-1">{description}</div>
     </button>
   );

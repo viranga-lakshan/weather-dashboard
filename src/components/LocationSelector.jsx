@@ -28,7 +28,7 @@ const LocationSelector = ({
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center gap-4 mb-8 w-full max-w-xl mx-auto">
+    <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8 w-full max-w-xl mx-auto">
       {/* City Search Form */}
       <form onSubmit={handleSubmit} className="flex w-full md:w-auto ">
         <input
