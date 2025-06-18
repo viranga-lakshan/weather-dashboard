@@ -9,7 +9,8 @@ const ForecastCard = ({ day, onClick, selected }) => {
 
   return (
     <button
-      className={`flex flex-col items-center bg-white rounded-xl p-5 shadow-md hover:shadow-xl transition border-2 min-w-[150px] max-w-[120px] min-h-[170px] ${selected ? 'border-blue-500' : 'border-transparent'}`}
+      className={`flex flex-col items-center rounded-xl p-5 shadow-md hover:shadow-xl transition border-2 min-w-[110px] max-w-[120px] min-h-[170px] ${selected ? 'border-blue-500' : 'border-transparent'}`}
+      style={{ backgroundColor: '#f1f4f4' }}
       onClick={onClick}
       aria-pressed={selected}
     >
@@ -21,4 +22,4 @@ const ForecastCard = ({ day, onClick, selected }) => {
   );
 };
 
-export default ForecastCard; 
+export default ForecastCard;

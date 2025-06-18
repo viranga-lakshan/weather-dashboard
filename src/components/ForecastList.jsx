@@ -20,9 +20,9 @@ const ForecastList = ({ forecast, fullHeight }) => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <div className={`bg-white bg-opacity-90 rounded-2xl shadow-xl p-10 min-h-[350px] w-full flex flex-col  ${fullHeight ? 'h-full' : ''}`}>
-      <h2 className="text-2xl font-bold mb-6 text-gray-800">5-Day Forecast</h2>
-      <div className="flex gap-5 justify-between items-center w-full flex-nowrap overflow-x-auto">
+    <div className={`bg-white bg-opacity-90 rounded-2xl shadow-xl p-4 md:p-10 min-h-[300px] md:min-h-[350px] w-full flex flex-col ${fullHeight ? 'h-full' : ''}`}>
+      <h2 className="text-lg md:text-2xl font-bold mb-4 md:mb-6 text-gray-800">5-Day Forecast</h2>
+      <div className="flex gap-3 md:gap-5 justify-start md:justify-between items-center w-full flex-nowrap overflow-x-auto pb-2 md:pb-0">
         {daily.map((day, idx) => (
           <ForecastCard
             key={day.dt}
