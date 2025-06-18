@@ -7,8 +7,9 @@ import { getWeatherIcon } from '../utils/weatherIcons';
  * @param {object} props
  * @param {object} props.data - Weather data object from OpenWeatherMap API.
  * @param {boolean} props.fullHeight - If true, stretches card to fill parent height.
+ * @param {function} props.onAddFavorite - Function to handle adding the current location to favorites.
  */
-const WeatherCard = ({ data, fullHeight }) => {
+const WeatherCard = ({ data, fullHeight, onAddFavorite }) => {
   if (!data) return null;
   const { weather, main, wind, name, locationName } = data;
   const icon = weather?.[0]?.icon;
@@ -41,7 +42,10 @@ const WeatherCard = ({ data, fullHeight }) => {
         feelsLike={main.feels_like}
       />
       {/* Add to Favorites Button */}
-      <button className="mt-0 px-5 py-2 border border-blue-300 rounded-lg text-blue-500 bg-blue-50 hover:bg-blue-100 transition text-base font-semibold flex items-center gap-2 shadow-sm">
+      <button 
+        className="mt-0 px-5 py-2 border border-blue-300 rounded-lg text-blue-500 bg-blue-50 hover:bg-blue-100 transition text-base font-semibold flex items-center gap-2 shadow-sm"
+        onClick={onAddFavorite}
+      >
         <span role="img" aria-label="star">⭐</span> Add to Favorites
       </button>
     </div>

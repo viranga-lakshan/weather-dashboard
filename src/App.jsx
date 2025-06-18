@@ -120,7 +120,11 @@ const App = () => {
       ) : (
         <div className="w-full max-w-6xl flex flex-col md:flex-row gap-6 md:gap-10 h-auto md:h-[540px]">
           <div className="flex-1 flex justify-center items-stretch mb-6 md:mb-0">
-            <WeatherCard data={current} fullHeight />
+            <WeatherCard 
+              data={current} 
+              fullHeight 
+              onAddFavorite={handleAddFavorite}
+            />
           </div>
           <div className="flex-[2] flex items-stretch">
             <ForecastList forecast={forecast} fullHeight />
